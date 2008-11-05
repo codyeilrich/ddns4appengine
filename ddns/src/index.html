@@ -1,0 +1,17 @@
+<html>
+  <body>
+    {% for dnsarecord in dnsarecords %}
+      <b>{{ dnsarecord.hostname|escape }}</b>:
+      <blockquote>{{ dnsarecord.ip|escape }}</blockquote>
+    {% endfor %}
+
+    <form action="/sign" method="post">
+      <div><input type="text" name="hostname">hostname</text></div>
+      <div><input type="text" name="ip">ip address</text></div>
+      <div><input type="submit" value="Upload"></div>
+    </form>
+
+    <a href="{{ url }}">{{ url_linktext }}</a>
+
+  </body>
+</html>
